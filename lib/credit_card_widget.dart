@@ -398,7 +398,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
           final int rangeLen = patternRange[0].length;
           // Trim the Credit Card number string to match the pattern prefix length
           if (rangeLen < cardNumber.length) {
-            ccPatternStr = ccPatternStr.substring(0, rangeLen);
+            ccPatternStr = ccPatternStr.substring(0, rangeLen-1);
           }
 
           if (patternRange.length > 1) {
