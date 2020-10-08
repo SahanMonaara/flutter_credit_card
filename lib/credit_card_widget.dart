@@ -311,7 +311,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                   child: Text(
                     widget.cardNumber.isEmpty || widget.cardNumber == null
                         ? 'XXXX XXXX XXXX XXXX'
-                        : widget.cardNumber,
+                        : widget.cardNumber.substring(0,18),
                     style: widget.textStyle ?? defaultTextStyle,
                   ),
                 ),
@@ -594,7 +594,7 @@ class MaskedTextController extends TextEditingController {
   void moveCursorToEnd() {
     final String text = _lastUpdatedText;
     selection =
-        TextSelection.fromPosition(TextPosition(offset: (text ?? '').length-1));
+        TextSelection.fromPosition(TextPosition(offset: (text ?? '').length));
   }
 
   @override
