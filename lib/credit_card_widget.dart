@@ -397,8 +397,8 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
               cardNumber.replaceAll(RegExp(r'\s+\b|\b\s'), '');
           final int rangeLen = patternRange[0].length;
           // Trim the Credit Card number string to match the pattern prefix length
-          if (18 < cardNumber.length) {
-            ccPatternStr = ccPatternStr.substring(0, 18);
+          if (rangeLen < cardNumber.length) {
+            ccPatternStr = ccPatternStr.substring(0, rangeLen);
           }
 
           if (patternRange.length > 1) {
@@ -594,7 +594,7 @@ class MaskedTextController extends TextEditingController {
   void moveCursorToEnd() {
     final String text = _lastUpdatedText;
     selection =
-        TextSelection.fromPosition(TextPosition(offset: (text ?? '').length));
+        TextSelection.fromPosition(TextPosition(offset: (text ?? '').length-1));
   }
 
   @override
